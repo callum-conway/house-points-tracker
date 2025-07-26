@@ -1,0 +1,13 @@
+<div class="house-column">
+    <div class="house-column__crest">
+        <p class="house-column__text">
+            {{ house().name }} 
+        </p>
+
+        <app-house-crest [crestType]="house().name" />
+    </div>
+
+    <div class="house-column__fill" [style.height.%]="fillHeight()" [style.background-color]="houseColor()">
+        <p class="house-column__points">{{ house().points }}</p>
+    </div>
+</div>
