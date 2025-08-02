@@ -17,9 +17,9 @@ export class HousePointsService {
     isLoaded$ = this.isLoadedSubject.asObservable();
 
     getHousePoints() {
-        return interval(6000).pipe( // Run every 6 seconds
+        return interval(10000).pipe( // Run every 6 seconds
             startWith(0), // Start immediately
-            switchMap(() => 
+            switchMap(() =>
                 this.http.get<HousePoints[]>(this.endpoints).pipe(
                     tap(() => this.isLoadedSubject.next(true)), // ✅ Set loaded flag on success
                     catchError(error => {
