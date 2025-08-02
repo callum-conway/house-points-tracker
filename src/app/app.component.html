@@ -1,7 +1,13 @@
 <main class="main">
     <div class="house-columns-container">
-        @for (house of houseData(); track house.name) {
-            <app-house-column [maxPoints]="maxPoints()" [house]="house" />
+        @if (isLoaded()) {
+            @for (house of houseData(); track house.name) {
+                <app-house-column [maxPoints]="maxPoints()" [house]="house" />
+            }
+        } @else {
+            @for (skeleton of [1, 2, 3, 4]; track skeleton) {
+                <div class="house-column house-column__skeleton"></div>
+            }
         }
     </div>
 </main>

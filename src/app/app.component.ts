@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HouseColumnComponent } from './house-column/house-column.component';
 import { HousePoints, HousePointsService } from './services/house-points.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-root',
@@ -13,6 +14,8 @@ export class AppComponent {
     title = 'house-points-tracker';
     readonly houseData = signal<HousePoints[]>([{ name: '', points: 0 }]);
     private service = inject(HousePointsService);
+    readonly isLoaded = toSignal(this.service.isLoaded$, { initialValue: false });
+
 
     readonly maxPoints = computed<number>(() => {
         let pointsLimit:number = 150;

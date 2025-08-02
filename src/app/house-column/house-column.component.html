@@ -7,7 +7,8 @@
         <app-house-crest [crestType]="house().name" />
     </div>
 
-    <div class="house-column__fill" [style.height.%]="fillHeight()" [style.background-color]="houseColor()">
+    <div class="house-column__fill" [ngStyle]="isMobile ? {'width.%': fillValue()} : {'height.%': fillValue()}"
+        [style.background-color]="houseColor()">
         <p class="house-column__points">{{ house().points }}</p>
     </div>
 </div>
