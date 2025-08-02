@@ -29,11 +29,7 @@
             border-radius: 4px;
             position: relative;
             overflow: hidden;
-            border-radius: 12px 0 0 12px;
-
-            @media screen and (min-width: 768px) {
-                border-radius: 12px 12px 0 0;
-            }
+            border-radius: 12px;
 
             // Skeleton shimmer animation
             &::after {
